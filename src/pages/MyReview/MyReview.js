@@ -11,7 +11,7 @@ const MyReview = () => {
       const status = window.confirm("Are you sure? You want to delete it!");
       console.log(status);
       if (status) {
-         fetch(`http://localhost:5000/delete/${id}`, {
+         fetch(`https://wild-photo-server.vercel.app/delete/${id}`, {
             method: "DELETE",
          })
             .then((res) => res.json())
@@ -25,11 +25,10 @@ const MyReview = () => {
       }
    };
 
-   
    const handleUpdate = () => {};
 
    useEffect(() => {
-      fetch(`http://localhost:5000/insmyreview/${user?.email}`)
+      fetch(`https://wild-photo-server.vercel.app/insmyreview/${user?.email}`)
          .then((res) => res.json())
          .then((data) => setMyReview(data));
    }, [user?.email]);
