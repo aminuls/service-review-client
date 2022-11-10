@@ -56,7 +56,10 @@ const Blog = () => {
                      </button>
                   </h2>
                   <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                     <div className="accordion-body fw-semibold">{/*  */}</div>
+                     <div className="accordion-body fw-semibold">
+                        How NodeJS handle multiple client requests? NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an
+                        infinite loop that receives requests and processes them.
+                     </div>
                   </div>
                </div>
             </div>
