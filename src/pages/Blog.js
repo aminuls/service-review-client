@@ -44,20 +44,17 @@ const Blog = () => {
                   </h2>
                   <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                      <div className="accordion-body fw-semibold">
-                        
+                        JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming
+                        language.
                      </div>
                   </div>
                </div>
                <div className="accordion-item border border-5 rounded-0">
                   <h2 className="accordion-header" id="headingThree">
-                     <button className="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        
-                     </button>
+                     <button className="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"></button>
                   </h2>
                   <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                     <div className="accordion-body fw-semibold">
-                        
-                     </div>
+                     <div className="accordion-body fw-semibold"></div>
                   </div>
                </div>
             </div>
