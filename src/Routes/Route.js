@@ -34,11 +34,19 @@ export const router = createBrowserRouter([
          },
          {
             path: "/register",
-            element: <Register></Register>
+            element: <Register></Register>,
          },
          {
             path: "/blog",
-            element: <Blog></Blog>
+            element: <Blog></Blog>,
+         },
+         {
+            path: "/addservice",
+            element: <Blog></Blog>,
+         },
+         {
+            path: "/myreviews",
+            element: <Blog></Blog>,
          },
       ],
    },

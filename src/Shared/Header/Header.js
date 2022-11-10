@@ -3,11 +3,20 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
+   const { user, logOut } = useContext(AuthContext);
    const [navDark, setnavDark] = useState(false);
    const [offset, setOffset] = useState(0);
+   const handleSignOut = () => {
+      logOut()
+         .then(() => {})
+         .catch((error) => {
+            console.log(error);
+         });
+   };
    useEffect(() => {
       const onScroll = () => setOffset(window.pageYOffset);
       // clean up code
@@ -46,15 +55,35 @@ const Header = () => {
                         </Link>
                      </Nav>
                      <Nav>
-                        <Link role="button" className="nav-link text-light" to="/login">
-                           Log in
-                        </Link>
-                     </Nav>
-                     <Nav>
                         <Link role="button" className="nav-link text-light" to="/blog">
                            Blog
                         </Link>
                      </Nav>
+                     {user?.uid ? (
+                        <>
+                           <Nav>
+                              <Link role="button" className="nav-link text-light" to="/addservice">
+                                 Add Service
+                              </Link>
+                           </Nav>
+                           <Nav>
+                              <Link role="button" className="nav-link text-light" to="/myreviews">
+                                 My Reviews
+                              </Link>
+                           </Nav>
+                           <Nav>
+                              <button onClick={handleSignOut} className="nav-link text-light bg-transparent border-0">
+                                 Log out
+                              </button>
+                           </Nav>
+                        </>
+                     ) : (
+                        <Nav>
+                           <Link role="button" className="nav-link text-light" to="/login">
+                              Log in
+                           </Link>
+                        </Nav>
+                     )}
                   </Nav>
                </Navbar.Collapse>
             </Container>
