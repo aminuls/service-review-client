@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
    {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
             path: "/services/:id",
             element: <ServiceDetails></ServiceDetails>,
             loader: async ({ params }) => {
-               return fetch(`http://localhost:5000/services/${params.id}`);
+               return fetch(`https://wild-photo-server.vercel.app/services/${params.id}`);
             },
          },
          {
@@ -42,11 +43,19 @@ export const router = createBrowserRouter([
          },
          {
             path: "/addservice",
-            element: <Blog></Blog>,
+            element: (
+               <ProtectedRoute>
+                  <Blog></Blog>
+               </ProtectedRoute>
+            ),
          },
          {
             path: "/myreviews",
-            element: <Blog></Blog>,
+            element: (
+               <ProtectedRoute>
+                  <Blog></Blog>
+               </ProtectedRoute>
+            ),
          },
       ],
    },

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // import { Link } from 'react-router-dom';
-import Cards from '../../components/Cards/Cards';
-import SvgGen from '../../components/Svg/SvgGen';
+import Cards from "../../components/Cards/Cards";
+import SvgGen from "../../components/Svg/SvgGen";
 
 const Services = () => {
    const [services, setServices] = useState([]);
    useEffect(() => {
-      fetch("http://localhost:5000/services")
+      fetch("https://wild-photo-server.vercel.app/services")
          .then((res) => res.json())
          .then((service) => setServices(service));
    }, []);

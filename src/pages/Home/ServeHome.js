@@ -5,7 +5,7 @@ import Cards from "../../components/Cards/Cards";
 const ServeHome = () => {
    const [services, setServices] = useState([]);
    useEffect(() => {
-      fetch("http://localhost:5000/servehome")
+      fetch("https://wild-photo-server.vercel.app/servehome")
          .then((res) => res.json())
          .then((service) => setServices(service));
    }, []);

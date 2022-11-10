@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import SvgGen from "../../components/Svg/SvgGen";
 import { AiFillStar } from "react-icons/ai";
-import './ServiceDetails.css';
+import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
    const service = useLoaderData();
@@ -19,7 +19,7 @@ const ServiceDetails = () => {
          service_id: _id,
          review: inputReview,
       };
-      fetch("http://localhost:5000/insreview", {
+      fetch("https://wild-photo-server.vercel.app/insreview", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -77,7 +77,7 @@ const ServiceDetails = () => {
                         <label for="exampleFormControlInput1" class="form-label m-0 p-0">
                            Rating:
                         </label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" style={{width: "70px"}} required/>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
                         <i className="fs-3 text-warning">
                            <AiFillStar></AiFillStar>
                         </i>
