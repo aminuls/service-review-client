@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import SvgGen from "../../components/Svg/SvgGen";
 import { AiFillStar } from "react-icons/ai";
@@ -27,6 +27,7 @@ const ServiceDetails = () => {
       e.preventDefault();
       const form = e.target;
       const inputReview = e.target.reviewField.value;
+      const ratingField = e.target.ratingField.value;
       // console.log(inputReview);
       const review = {
          username: user?.displayName,
@@ -35,6 +36,7 @@ const ServiceDetails = () => {
          service_name: name,
          service_id: _id,
          review: inputReview,
+         ratings: ratingField,
       };
       fetch("http://localhost:5000/insreview", {
          method: "POST",
@@ -86,34 +88,46 @@ const ServiceDetails = () => {
                </div>
                <div className="col">
                   {/* conditional */}
-                  <form onSubmit={handleReview} class="mb-4 text-start">
-                     <label htmFor="exampleFormControlTextarea1" class="form-label">
-                        Please Give a Review
-                     </label>
-                     <textarea name="reviewField" class="form-control" id="exampleFormControlTextarea1" placeholder="Type your review here" rows="3" required></textarea>
-                     <div class="mt-2 d-flex align-items-center gap-2">
-                        <label htmFor="exampleFormControlInput1" class="form-label m-0 p-0">
-                           Rating:
-                        </label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
-                        <i className="fs-3 text-warning">
-                           <AiFillStar></AiFillStar>
-                        </i>
+                  {user?.uid ? (
+                     <>
+                        <form onSubmit={handleReview} className="mb-4 text-start">
+                           <label htmFor="exampleFormControlTextarea1" className="form-label">
+                              Please Give a Review
+                           </label>
+                           <textarea name="reviewField" className="form-control" id="exampleFormControlTextarea1" placeholder="Type your review here" rows="3" required></textarea>
+                           <div className="mt-2 d-flex align-items-center gap-2">
+                              <label htmFor="exampleFormControlInput1" className="form-label m-0 p-0">
+                                 Rating:
+                              </label>
+                              <input type="text" name="ratingField" className="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
+                              <i className="fs-3 text-warning">
+                                 <AiFillStar></AiFillStar>
+                              </i>
+                           </div>
+                           <button className="btn btn-primary mt-2" type="submit">
+                              Place Review
+                           </button>
+                        </form>
+                     </>
+                  ) : (
+                     <div className="mb-4 ">
+                        <h2 className="text-center text-danger">Please Login to add a Review</h2>
+                        <Link to="/login">
+                           <button type="button" class="btn btn-lg btn-primary">
+                              Log in
+                           </button>
+                        </Link>
                      </div>
-                     <button className="btn btn-primary mt-2" type="submit">
-                        Place Review
-                     </button>
-                  </form>
-                  {/* arraymap will be write here */}
+                  )}
                   {serviceReview.map((singleReview) => {
                      console.log("review", singleReview);
-                     const { date, photo, review, username, time } = singleReview;
+                     const { _id, date, photo, review, username, time } = singleReview;
                      return (
-                        <div class="card mb-3">
-                           <div class="card-body">
+                        <div key={_id} className="card mb-3">
+                           <div className="card-body">
                               <div className="d-flex justify-content-between align-items-center align-items-lg-start align-items-xl-center flex-row flex-lg-column flex-xl-row">
                                  <div className="d-flex flex-lg-column flex-xl-row text-start align-items-center align-items-lg-start align-items-xl-center gap-2">
-                                    <img src={photo} class="rounded-circle" alt="..." style={{ width: "60px", height: "60px" }} />
+                                    <img src={photo} className="rounded-circle" alt="..." style={{ width: "60px", height: "60px" }} />
                                     <div>
                                        <p className="m-0">{username}</p>
                                        <p className="text-muted m-0">{`${time}`}</p>
