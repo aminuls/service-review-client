@@ -9,44 +9,43 @@ import SvgGen from "../components/Svg/SvgGen";
 
 const auth = getAuth(app);
 const Login = () => {
-   const {setUser, providerLogin, setLoading} = useContext(AuthContext);
+   const { setUser, providerLogin, setLoading } = useContext(AuthContext);
    const [error, setError] = useState(null);
    const [success, setSuccess] = useState(false);
    const [userEmail, setUserEmail] = useState(null);
-   const googleProvider = new GoogleAuthProvider()
+   const googleProvider = new GoogleAuthProvider();
    const githubProvider = new GithubAuthProvider();
 
    const navigate = useNavigate();
    // console.log("from ai to better ", navigate);
 
    const location = useLocation();
-   console.log("from login", location);
+   // console.log("from login", location);
    const from = location.state?.from?.pathname || "/";
 
-   const handleGoogle = () =>{
+   const handleGoogle = () => {
       providerLogin(googleProvider)
-      .then((result)=>{
-         const user = result.user;
-         setUser(user);
-         navigate(from, { replace: true });
-      })
-      .catch((error)=>{
-         console.log(error);
-      })
-   }
+         .then((result) => {
+            const user = result.user;
+            setUser(user);
+            navigate(from, { replace: true });
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
 
-   const handleGithub = () =>{
+   const handleGithub = () => {
       providerLogin(githubProvider)
-      .then((result)=>{
-         const user = result.user;
-         setUser(user);
-         navigate(from, { replace: true });
-      })
-      .catch((error)=>{
-         console.log(error);
-      })
-   }
-
+         .then((result) => {
+            const user = result.user;
+            setUser(user);
+            navigate(from, { replace: true });
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
 
    const handleSubmit = (event) => {
       event.preventDefault();
@@ -100,13 +99,13 @@ const Login = () => {
             <div className="col-12 col-md-5 col-lg-4 mt-5">
                <form onSubmit={handleSubmit} className="fw-semibold">
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput" className="form-label">
+                     <label htmFor="formGroupExampleInput" className="form-label">
                         Email address
                      </label>
                      <input onBlur={handleEmailBlur} name="email" type="email" className="form-control" id="formGroupExampleInput" placeholder="Enter email" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput2" className="form-label">
+                     <label htmFor="formGroupExampleInput2" className="form-label">
                         Password
                      </label>
                      <input name="password" type="password" className="form-control" id="formGroupExampleInput2" placeholder="Password" required />

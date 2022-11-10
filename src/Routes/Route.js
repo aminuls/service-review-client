@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import AddService from "../pages/AddService/AddService";
 import Blog from "../pages/Blog";
 import Error from "../pages/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
+import MyReview from "../pages/MyReview/MyReview";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
@@ -45,7 +47,7 @@ export const router = createBrowserRouter([
             path: "/addservice",
             element: (
                <ProtectedRoute>
-                  <Blog></Blog>
+                  <AddService></AddService>
                </ProtectedRoute>
             ),
          },
@@ -53,7 +55,7 @@ export const router = createBrowserRouter([
             path: "/myreviews",
             element: (
                <ProtectedRoute>
-                  <Blog></Blog>
+                  <MyReview></MyReview>
                </ProtectedRoute>
             ),
          },

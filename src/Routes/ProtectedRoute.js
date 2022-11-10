@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
    const { user, loading } = useContext(AuthContext);
 
    const location = useLocation();
-   console.log("from protected", location);
+   // console.log("from protected", location);
    if (loading) {
       return (
          <div className="spinner-border text-primary position-absolute top-50 start-50 translate-middle" role="status">

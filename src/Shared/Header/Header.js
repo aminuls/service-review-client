@@ -24,7 +24,7 @@ const Header = () => {
       window.addEventListener("scroll", onScroll, { passive: true });
       return () => window.removeEventListener("scroll", onScroll);
    }, []);
-   console.log(offset);
+   // console.log(offset);
    const handleNavBg = () => {
       setnavDark(!navDark);
    };

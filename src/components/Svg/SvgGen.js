@@ -14,9 +14,9 @@ const SvgGen = () => {
       return size;
    }
    const [width] = useWindowSize();
-   console.log(width);
+   // console.log(width);
    const wave = document.getElementById("wave");
-   console.log(wave);
+   // console.log(wave);
    if (width < 576) {
       const wave = document.getElementById("wave");
       wave?.setAttribute("viewBox", "1000 30 500 200");
@@ -30,7 +30,7 @@ const SvgGen = () => {
    /* 1010 30 500 250 (mobile) */
    /* 160 35 740 210 (tab) */
    /* 220 35 1440 210 (desktop) */
-   console.log(wave);
+   // console.log(wave);
    return (
       <svg id="wave" style={{ transform: "rotate(180deg)", transition: "0.3s" }} viewBox="220 35 1440 210" version="1.1" xmlns="http://www.w3.org/2000/svg">
          <defs>

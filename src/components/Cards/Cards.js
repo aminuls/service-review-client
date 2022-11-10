@@ -20,9 +20,9 @@ const Cards = ({ services }) => {
                      <div className="card-body pb-0 text-start">
                         <h5 className="card-title">{name}</h5>
                         <p className="card-text">
-                           {description.length > 84 ? (
+                           {description?.length > 84 ? (
                               <>
-                                 {`${description.slice(0, 84)}... `}
+                                 {`${description?.slice(0, 84)}... `}
                                  <Link className="text-decoration-none" to={`/services/${_id}`}>
                                     See More
                                  </Link>

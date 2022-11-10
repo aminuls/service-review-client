@@ -44,7 +44,7 @@ const Register = () => {
       const photourl = form.photourl.value;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(name, email, password);
+      // console.log(name, email, password);
 
       // validate password
       if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
@@ -77,8 +77,6 @@ const Register = () => {
          });
    };
 
-   
-
    const updateUserName = (name, photoURL) => {
       updateProfile(auth.currentUser, {
          displayName: name,
@@ -97,31 +95,31 @@ const Register = () => {
          <div className="mx-auto container row row-cols-1 row-cols-md-2 mb-5 pb-5 align-items-start">
             <div className="col-12 col-md-7 col-lg-8 d-flex flex-column justify-content-center align-items-center">
                <div className="">
-                  <img src="../images/signup.jpg" alt="signup" style={{width: "100%", maxHeight:"80vh", objectFit:"cover"}} />
+                  <img src="../images/signup.jpg" alt="signup" style={{ width: "100%", maxHeight: "80vh", objectFit: "cover" }} />
                </div>
             </div>
             <div className="col-12 col-md-5 col-lg-4">
                <form onSubmit={handleRegister} className="fw-semibold">
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput" className="form-label">
+                     <label htmFor="formGroupExampleInput" className="form-label">
                         Your Name
                      </label>
                      <input name="name" type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Your Name" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput" className="form-label">
+                     <label htmFor="formGroupExampleInput" className="form-label">
                         Photo URL
                      </label>
                      <input name="photourl" type="text" className="form-control" id="formGroupExampleInput" placeholder="Photo url" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput" className="form-label">
+                     <label htmFor="formGroupExampleInput" className="form-label">
                         Email address
                      </label>
                      <input name="email" type="email" className="form-control" id="formGroupExampleInput" placeholder="Enter email" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmlFor="formGroupExampleInput2" className="form-label">
+                     <label htmFor="formGroupExampleInput2" className="form-label">
                         Password
                      </label>
                      <input name="password" type="password" className="form-control" id="formGroupExampleInput2" placeholder="Password" required />

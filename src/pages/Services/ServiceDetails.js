@@ -1,25 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import SvgGen from "../../components/Svg/SvgGen";
 import { AiFillStar } from "react-icons/ai";
 import "./ServiceDetails.css";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const ServiceDetails = () => {
+   const { user } = useContext(AuthContext);
+   // const {} =  user;
+   // console.log(user);
    const service = useLoaderData();
-   console.log(service);
+   // console.log(service);
    const { _id, description, name, price, rating, images } = service;
+
+   const [serviceReview, setServiceReview] = useState([]);
+   useEffect(() => {
+      fetch(`http://localhost:5000/insreview/${_id}`)
+         .then((res) => res.json())
+         .then((data) => setServiceReview(data));
+   }, [_id]);
+   console.log(serviceReview);
+
    const handleReview = (e) => {
       e.preventDefault();
       const form = e.target;
       const inputReview = e.target.reviewField.value;
-      console.log(inputReview);
+      // console.log(inputReview);
       const review = {
+         username: user?.displayName,
+         email: user?.email,
+         photo: user?.photoURL,
          service_name: name,
          service_id: _id,
          review: inputReview,
       };
-      fetch("https://wild-photo-server.vercel.app/insreview", {
+      fetch("http://localhost:5000/insreview", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -28,7 +45,7 @@ const ServiceDetails = () => {
       })
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.acknowledged) {
                alert("Review Placed Successfully");
                form.reset();
@@ -36,6 +53,7 @@ const ServiceDetails = () => {
          })
          .catch((er) => console.error(er));
    };
+
    return (
       <div>
          <SvgGen></SvgGen>
@@ -69,15 +87,15 @@ const ServiceDetails = () => {
                <div className="col">
                   {/* conditional */}
                   <form onSubmit={handleReview} class="mb-4 text-start">
-                     <label for="exampleFormControlTextarea1" class="form-label">
+                     <label htmFor="exampleFormControlTextarea1" class="form-label">
                         Please Give a Review
                      </label>
                      <textarea name="reviewField" class="form-control" id="exampleFormControlTextarea1" placeholder="Type your review here" rows="3" required></textarea>
                      <div class="mt-2 d-flex align-items-center gap-2">
-                        <label for="exampleFormControlInput1" class="form-label m-0 p-0">
+                        <label htmFor="exampleFormControlInput1" class="form-label m-0 p-0">
                            Rating:
                         </label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
+                        <input type="text" class="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
                         <i className="fs-3 text-warning">
                            <AiFillStar></AiFillStar>
                         </i>
@@ -87,50 +105,36 @@ const ServiceDetails = () => {
                      </button>
                   </form>
                   {/* arraymap will be write here */}
-                  <div class="card mb-3">
-                     <div class="card-body">
-                        <div className="d-flex justify-content-between align-items-center align-items-lg-start align-items-xl-center flex-row flex-lg-column flex-xl-row">
-                           <div className="d-flex flex-lg-column flex-xl-row text-start align-items-center align-items-lg-start align-items-xl-center gap-2">
-                              <img src="../../images/animal-1.png" class="rounded-circle" alt="..." style={{ width: "60px", height: "60px" }} />
+                  {serviceReview.map((singleReview) => {
+                     console.log("review", singleReview);
+                     const { date, photo, review, username, time } = singleReview;
+                     return (
+                        <div class="card mb-3">
+                           <div class="card-body">
+                              <div className="d-flex justify-content-between align-items-center align-items-lg-start align-items-xl-center flex-row flex-lg-column flex-xl-row">
+                                 <div className="d-flex flex-lg-column flex-xl-row text-start align-items-center align-items-lg-start align-items-xl-center gap-2">
+                                    <img src={photo} class="rounded-circle" alt="..." style={{ width: "60px", height: "60px" }} />
+                                    <div>
+                                       <p className="m-0">{username}</p>
+                                       <p className="text-muted m-0">{`${time}`}</p>
+                                    </div>
+                                 </div>
+                                 <div className="card-text d-flex gap-1 align-items-baseline">
+                                    <p>Rating: {singleReview?.ratings}</p>
+                                    <i className="fs-3 text-warning">
+                                       <AiFillStar></AiFillStar>
+                                    </i>
+                                 </div>
+                              </div>
                               <div>
-                                 <p className="m-0">Aminul Islam</p>
-                                 <p className="text-muted m-0">১০/১১/২০২২</p>
+                                 <p className="card-text text-start my-3 ms-1">
+                                    {review} <span className="text-muted">{date}</span>
+                                 </p>
                               </div>
                            </div>
-                           <div className="card-text d-flex gap-1 align-items-baseline">
-                              <p>Rating: {rating}</p>
-                              <i className="fs-3 text-warning">
-                                 <AiFillStar></AiFillStar>
-                              </i>
-                           </div>
                         </div>
-                        <div>
-                           <p className="card-text text-start my-3 ms-1">{description}</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="card">
-                     <div class="card-body">
-                        <div className="d-flex justify-content-between align-items-center align-items-lg-start align-items-xl-center flex-row flex-lg-column flex-xl-row">
-                           <div className="d-flex flex-lg-column flex-xl-row text-start align-items-center align-items-lg-start align-items-xl-center gap-2">
-                              <img src="../../images/animal-1.png" class="rounded-circle" alt="..." style={{ width: "60px", height: "60px" }} />
-                              <div>
-                                 <p className="m-0">Aminul Islam</p>
-                                 <p className="text-muted m-0">30.10.2020</p>
-                              </div>
-                           </div>
-                           <div className="card-text d-flex gap-1 align-items-baseline">
-                              <p>Rating: {rating}</p>
-                              <i className="fs-3 text-warning">
-                                 <AiFillStar></AiFillStar>
-                              </i>
-                           </div>
-                        </div>
-                        <div>
-                           <p className="card-text text-start my-3 ms-1">{description}</p>
-                        </div>
-                     </div>
-                  </div>
+                     );
+                  })}
                </div>
             </div>
          </div>
