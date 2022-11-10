@@ -10,8 +10,22 @@ const MyReview = () => {
    const handleDelete = (id) => {
       const status = window.confirm("Are you sure? You want to delete it!");
       console.log(status);
-      
+      if (status) {
+         fetch(`http://localhost:5000/delete/${id}`, {
+            method: "DELETE",
+         })
+            .then((res) => res.json())
+            .then((data) => {
+               if (data.deletedCount === 1) {
+                  const result = myReview.find((review) => review._id !== id);
+                  setMyReview(result);
+                  alert("Deleted Successfully");
+               }
+            });
+      }
    };
+
+   
    const handleUpdate = () => {};
 
    useEffect(() => {
