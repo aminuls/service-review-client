@@ -1,0 +1,58 @@
+[
+   {
+      "name": "Wildlife Photography",
+      "images": "https://i.ibb.co/RYtxT8z/wildlife.png",
+      "price": "39",
+      "rating": "4.5",
+      "description": "Wildlife photography is a genre of photography concerned with documenting various forms of wildlife in their natural habitat. As well as requiring photography skills, wildlife photographers may need field craft skills. For example, some animals and birds are difficult to approach and thus a knowledge of the animal's and birds behavior is needed in order to be able to predict its actions. Photographing some species may require stalking skills or the use of a hide/blind for concealment. While wildlife photographs can be taken using basic equipment, successful photography of some types of wildlife requires specialist equipment, such as macro lenses for insects, long focal length lenses for birds and underwater cameras for marine life. However, a great wildlife photograph can involve a understanding of animal behavior. Equipment for wildlife photography can be very specialized. Some other specialized gear includes camera traps, hides, ghillie suits and flash extenders."
+   },
+   {
+      "name": "Nature Photography",
+      "images": "https://i.ibb.co/bKcRG0g/nature.png",
+      "price": "14",
+      "rating": "4.6",
+      "description": "Nature photography is a wide range of photography taken outdoors and devoted to displaying natural elements such as landscapes, wildlife, plants, and close-ups of natural scenes and textures. Nature photography tends to put a stronger emphasis on the aesthetic value of the photo than other photography genres, such as photojournalism and documentary photography. Nature photography overlaps the fields of—and is sometimes considered an overarching category including -- wildlife photography, landscape photography,  and garden photography. Nature photographs are published in scientific, travel and cultural magazines such as National Geographic Magazine, National Wildlife Magazine and Audubon Magazine or other more specific magazines such as Outdoor Photographer and Nature's Best Photography. Well known nature photographers include Ansel Adams, Eliot Porter, Frans Lanting, Galen Rowell, and Art Wolfe."
+   },
+   {
+      "name": "Realistic Videography",
+      "images": "https://i.ibb.co/2hybysg/realistic-1.png",
+      "price": "69",
+      "rating": "4.5",
+      "description": "Videography is the process of capturing moving images on electronic media (videotape, direct to disk recording, or solid state storage) and even streaming media. The term includes methods of video production and post-production. It used to be considered the video equivalent of cinematography (moving images recorded on film stock), but the advent of digital video recording in the late 20th century blurred the distinction between the two, as in both methods the intermediary mechanism became the same. Nowadays, any video work could be called videography, whereas commercial motion picture production would be called cinematography. A videographer is a person who works in the field of videography and/or video production. News broadcasting relies heavily on live television where videographers engage in electronic news gathering of local news stories."
+   },
+   {
+      "name": "Wildlife Videography",
+      "images": "https://i.ibb.co/j8Gvqyk/wildlife-1.png",
+      "price": "59",
+      "rating": "4.8",
+      "description": "Wildlife videography, can quickly become an obsession. It takes an enormous amount of patience to nail a decent shot, so when it does happen, the endorphin rush can hook anyone. In saying that, a photo alone isn't always capable of capturing the full behavioral qualities of your subjects. It's a genre of documentary film or series about animals, plants, or other non-human living creatures, usually concentrating on video taken in their natural habitat but also often including footage of trained and captive animals. Sometimes they are about wildlife or ecosystems in relationship to human beings. Such programmes are most frequently made for television, particularly for public broadcasting channels, but some are also made for the cinema medium."
+   },
+   {
+      "name": "Animal Photography",
+      "images": "https://i.ibb.co/1TgZ3Jp/animal-1.png",
+      "price": "29",
+      "rating": "4.2",
+      "description": "Animal photography is all about capturing animals in their natural habitats. The animals are often photographed in action, such as eating, fighting, or in flight. Alternatively, more static portraits may be used to show detail of the animal or to depict it in its environment. Captive or controlled animals are often photographed instead of true wild specimens, although it is arguable as to whether this constitutes true wildlife photography. The world's largest photography organizations, the Photographic Society of America, the Fédération Internationale de l'Art Photographique and the Royal Photographic Society, have agreed on a definition for nature and wildlife photography that will be applied to photography competitions. The techniques of wildlife photography differ greatly from those used in landscape photography. For example, in wildlife photography wide apertures are used to achieve a fast shutter speed, freeze the subject's motion, and blur the backgrounds, while landscape photographers prefer small apertures."
+   },
+   {
+      "name": "Realistic Photography",
+      "images": "https://i.ibb.co/tKYDP7g/realistic.png",
+      "price": "49",
+      "rating": "4.3",
+      "description": "Photorealism is a genre of art that encompasses painting, drawing and other graphic media, in which an artist studies a photograph and then attempts to reproduce the image as realistically as possible in another medium. Although the term can be used broadly to describe artworks in many different media, it is also used to refer specifically to a group of paintings and painters of the American art movement that began in the late 1960s and early 1970s. As a full-fledged art movement, Photorealism evolved from Pop Art and as a counter to Abstract Expressionism as well as Minimalist art movements in the late 1960s and early 1970s in the United States. Photorealists use a photograph or several photographs to gather the information to create their paintings and it can be argued that the use of a camera and photographs is an acceptance of Modernism. However, the admittance to the use of photographs in Photorealism was met with intense criticism when the movement began to gain momentum in the late 1960s, despite the fact that visual devices had been used since the fifteenth century to aid artists with their work."
+   },
+   {
+      "name": "Animal Videography",
+      "images": "https://i.ibb.co/kx8xG5T/animal.png",
+      "price": "39",
+      "rating": "4.9",
+      "description": "Animal videography, can quickly become an obsession. It takes an enormous amount of patience to nail a decent shot, so when it does happen, the endorphin rush can hook anyone. In saying that, a photo alone isn't always capable of capturing the full behavioral qualities of your subjects. It's a genre of documentary film or series about animals, plants, or other non-human living creatures, usually concentrating on video taken in their natural habitat but also often including footage of trained and captive animals. Sometimes they are about Animal or ecosystems in relationship to human beings. Such programmes are most frequently made for television, particularly for public broadcasting channels, but some are also made for the cinema medium."
+   },
+   {
+      "name": "Nature videography",
+      "images": "https://i.ibb.co/rwMWvnb/nature-1.png",
+      "price": "24",
+      "rating": "4.4",
+      "description": "Always wonder how you can make the most out of your nature explorations? In this workshop, we will equip you with the essential skills and knowledge needed to create moving visuals out in the field. You’ll learn how to plan, shoot and craft an exciting visual flow with a human subject in the natural environment. Through the theory session, you will get a glimpse of the professional videography world through Tripeaksimagery, learn video techniques and create a Nature Video using Sony Alpha cameras and lenses. During the practical segment, you will be guided on identifying angles, camera movement and spotting biodiversity that would add interest to your video. There will also be a talent during the practical to expand our creative options."
+   }
+]

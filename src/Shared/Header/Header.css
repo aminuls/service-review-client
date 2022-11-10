@@ -1,0 +1,10 @@
+.logo{
+   width: calc(6rem - 1vw);
+}
+.company{
+   font-family: 'Cookie', cursive;
+}
+.navbar-toggler:focus {
+   text-decoration: none;
+   box-shadow: none;
+}
