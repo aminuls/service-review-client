@@ -17,7 +17,7 @@ const ServiceDetails = () => {
 
    const [serviceReview, setServiceReview] = useState([]);
    useEffect(() => {
-      fetch(`http://localhost:5000/insreview/${_id}`)
+      fetch(`https://wild-photo-server.vercel.app/insreview/${_id}`)
          .then((res) => res.json())
          .then((data) => setServiceReview(data));
    }, [_id]);
@@ -38,7 +38,7 @@ const ServiceDetails = () => {
          review: inputReview,
          ratings: ratingField,
       };
-      fetch("http://localhost:5000/insreview", {
+      fetch("https://wild-photo-server.vercel.app/insreview", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -113,7 +113,7 @@ const ServiceDetails = () => {
                      <div className="mb-4 ">
                         <h2 className="text-center text-danger">Please Login to add a Review</h2>
                         <Link to="/login">
-                           <button type="button" class="btn btn-lg btn-primary">
+                           <button type="button" className="btn btn-lg btn-primary">
                               Log in
                            </button>
                         </Link>

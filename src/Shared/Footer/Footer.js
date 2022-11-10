@@ -27,8 +27,8 @@ const Footer = () => {
                         </Link>
                      </li>
                      <li className="nav-item">
-                        <Link to="/login" className="nav-link text-light">
-                           Log in
+                        <Link to="/blog" className="nav-link text-light">
+                           Blog
                         </Link>
                      </li>
                   </ul>
