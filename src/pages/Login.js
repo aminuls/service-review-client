@@ -6,9 +6,11 @@ import { BsGithub, BsGoogle } from "react-icons/bs";
 import app from "../firebase/firebase.config";
 import { AuthContext } from "../contexts/AuthProvider";
 import SvgGen from "../components/Svg/SvgGen";
+import useDocumentTitle from "../useDocumentTitle";
 
 const auth = getAuth(app);
 const Login = () => {
+   useDocumentTitle("Log in");
    const { setUser, providerLogin, setLoading } = useContext(AuthContext);
    const [error, setError] = useState(null);
    const [success, setSuccess] = useState(false);

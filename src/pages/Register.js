@@ -5,9 +5,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import { AuthContext } from "../contexts/AuthProvider";
 import SvgGen from "../components/Svg/SvgGen";
+import useDocumentTitle from "../useDocumentTitle";
 
 const auth = getAuth(app);
 const Register = () => {
+   useDocumentTitle("Register");
    const { setUser, createUserByMail, providerLogin } = useContext(AuthContext);
    const [passwordError, setPasswordError] = useState("");
    const [success, setSuccess] = useState(false);
