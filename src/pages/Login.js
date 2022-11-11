@@ -28,7 +28,22 @@ const Login = () => {
          .then((result) => {
             const user = result.user;
             setUser(user);
-            navigate(from, { replace: true });
+            const currentUser = {
+               email: user.email,
+            };
+            fetch("https://wild-photo-server.vercel.app/jwt", {
+               method: "POST",
+               headers: {
+                  "content-type": "application/json",
+               },
+               body: JSON.stringify(currentUser),
+            })
+               .then((res) => res.json())
+               .then((data) => {
+                  console.log(data);
+                  localStorage.setItem("wildPhotoToken", data.token);
+                  navigate(from, { replace: true });
+               });
          })
          .catch((error) => {
             console.log(error);
@@ -40,7 +55,22 @@ const Login = () => {
          .then((result) => {
             const user = result.user;
             setUser(user);
-            navigate(from, { replace: true });
+            const currentUser = {
+               email: user.email,
+            };
+            fetch("https://wild-photo-server.vercel.app/jwt", {
+               method: "POST",
+               headers: {
+                  "content-type": "application/json",
+               },
+               body: JSON.stringify(currentUser),
+            })
+               .then((res) => res.json())
+               .then((data) => {
+                  console.log(data);
+                  localStorage.setItem("wildPhotoToken", data.token);
+                  navigate(from, { replace: true });
+               });
          })
          .catch((error) => {
             console.log(error);
@@ -60,7 +90,22 @@ const Login = () => {
             setUser(user);
             // console.log(user);
             setSuccess(true);
-            navigate(from, { replace: true });
+            const currentUser = {
+               email: user.email,
+            };
+            fetch("https://wild-photo-server.vercel.app/jwt", {
+               method: "POST",
+               headers: {
+                  "content-type": "application/json",
+               },
+               body: JSON.stringify(currentUser),
+            })
+               .then((res) => res.json())
+               .then((data) => {
+                  console.log(data);
+                  localStorage.setItem("wildPhotoToken", data.token);
+                  navigate(from, { replace: true });
+               });
          })
          .catch((error) => {
             setError(error.message);
@@ -99,13 +144,13 @@ const Login = () => {
             <div className="col-12 col-md-5 col-lg-4 mt-5">
                <form onSubmit={handleSubmit} className="fw-semibold">
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput" className="form-label">
+                     <label htmlFor="formGroupExampleInput" className="form-label">
                         Email address
                      </label>
                      <input onBlur={handleEmailBlur} name="email" type="email" className="form-control" id="formGroupExampleInput" placeholder="Enter email" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput2" className="form-label">
+                     <label htmlFor="formGroupExampleInput2" className="form-label">
                         Password
                      </label>
                      <input name="password" type="password" className="form-control" id="formGroupExampleInput2" placeholder="Password" required />

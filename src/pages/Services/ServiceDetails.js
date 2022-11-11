@@ -6,8 +6,10 @@ import { AiFillStar } from "react-icons/ai";
 import "./ServiceDetails.css";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useDocumentTitle from "../../useDocumentTitle";
 
 const ServiceDetails = () => {
+   useDocumentTitle("Service Details")
    const { user } = useContext(AuthContext);
    // const {} =  user;
    // console.log(user);
@@ -21,13 +23,13 @@ const ServiceDetails = () => {
          .then((res) => res.json())
          .then((data) => setServiceReview(data));
    }, [_id]);
-   console.log(serviceReview);
+   // console.log(serviceReview);
 
    const handleReview = (e) => {
       e.preventDefault();
       const form = e.target;
-      const inputReview = e.target.reviewField.value;
-      const ratingField = e.target.ratingField.value;
+      const inputReview = form.reviewField.value;
+      const ratingField = form.ratingField.value;
       // console.log(inputReview);
       const review = {
          username: user?.displayName,
@@ -53,7 +55,7 @@ const ServiceDetails = () => {
                form.reset();
             }
          })
-         .catch((er) => console.error(er));
+         .catch((err) => console.error(err));
    };
 
    return (
@@ -91,15 +93,15 @@ const ServiceDetails = () => {
                   {user?.uid ? (
                      <>
                         <form onSubmit={handleReview} className="mb-4 text-start">
-                           <label htmFor="exampleFormControlTextarea1" className="form-label">
+                           <label htmlFor="exampleFormControlTextarea1" className="form-label">
                               Please Give a Review
                            </label>
-                           <textarea name="reviewField" className="form-control" id="exampleFormControlTextarea1" placeholder="Type your review here" rows="3" required></textarea>
+                           <textarea name="reviewField" className="form-control" id="exampleFormControlTextarea1" placeholder="Type your review here" rows="4" required></textarea>
                            <div className="mt-2 d-flex align-items-center gap-2">
-                              <label htmFor="exampleFormControlInput1" className="form-label m-0 p-0">
+                              <label htmlFor="exampleFormControlInput1" className="form-label m-0 p-0">
                                  Rating:
                               </label>
-                              <input type="text" name="ratingField" className="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
+                              <input type="number" step="0.01" name="ratingField" className="form-control" id="exampleFormControlInput1" style={{ width: "70px" }} required />
                               <i className="fs-3 text-warning">
                                  <AiFillStar></AiFillStar>
                               </i>
@@ -120,7 +122,7 @@ const ServiceDetails = () => {
                      </div>
                   )}
                   {serviceReview.map((singleReview) => {
-                     console.log("review", singleReview);
+                     // console.log("review", singleReview);
                      const { _id, date, photo, review, username, time } = singleReview;
                      return (
                         <div key={_id} className="card mb-3">

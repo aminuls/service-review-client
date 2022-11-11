@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Error = () => {
    return (
       <div className="d-flex flex-column vh-100 align-items-center justify-content-center">
-         <img src="../images/error.jpg" alt="error" />
-         <div className="mt-3">
-            <h2 style={{ fontFamily: "cursive" }}>
+         <img src="../images/error.png" alt="error" />
+         <div>
+            <h3>
                Go to{" "}
                <Link to="/" className="text-decoration-none">
-                  Home page
+                  <button className="btn btn-primary btn-lg">Home page</button>
                </Link>
-            </h2>
+            </h3>
          </div>
       </div>
    );

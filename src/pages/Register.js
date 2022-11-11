@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import { AuthContext } from "../contexts/AuthProvider";
 import SvgGen from "../components/Svg/SvgGen";
@@ -13,12 +13,17 @@ const Register = () => {
    const [success, setSuccess] = useState(false);
    const googleProvider = new GoogleAuthProvider();
    const githubProvider = new GithubAuthProvider();
+   const navigate = useNavigate();
+   const location = useLocation();
+   // console.log("from login", location);
+   const from = location.state?.from?.pathname || "/";
 
    const handleGoogle = () => {
       providerLogin(googleProvider)
          .then((result) => {
             const user = result.user;
             setUser(user);
+            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.log(error);
@@ -30,6 +35,7 @@ const Register = () => {
          .then((result) => {
             const user = result.user;
             setUser(user);
+            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.log(error);
@@ -70,6 +76,7 @@ const Register = () => {
             setSuccess(true);
             form.reset();
             updateUserName(name, photourl);
+            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.error(error);
@@ -101,25 +108,25 @@ const Register = () => {
             <div className="col-12 col-md-5 col-lg-4">
                <form onSubmit={handleRegister} className="fw-semibold">
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput" className="form-label">
+                     <label htmlFor="formGroupExampleInput" className="form-label">
                         Your Name
                      </label>
                      <input name="name" type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Your Name" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput" className="form-label">
+                     <label htmlFor="formGroupExampleInput" className="form-label">
                         Photo URL
                      </label>
                      <input name="photourl" type="text" className="form-control" id="formGroupExampleInput" placeholder="Photo url" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput" className="form-label">
+                     <label htmlFor="formGroupExampleInput" className="form-label">
                         Email address
                      </label>
                      <input name="email" type="email" className="form-control" id="formGroupExampleInput" placeholder="Enter email" required />
                   </div>
                   <div className="mb-3 text-start">
-                     <label htmFor="formGroupExampleInput2" className="form-label">
+                     <label htmlFor="formGroupExampleInput2" className="form-label">
                         Password
                      </label>
                      <input name="password" type="password" className="form-control" id="formGroupExampleInput2" placeholder="Password" required />

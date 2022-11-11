@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { AiFillStar } from "react-icons/ai";
 
 const Cards = ({ services }) => {
-   // console.log(services);
+   console.log(services);
    return (
       <div className="row row-cols-1 row-cols-md-3 g-4">
          {services.map((service) => {
@@ -40,9 +41,14 @@ const Cards = ({ services }) => {
                               </button>
                            </Link>
                         </div>
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between align-items-baseline">
                            <h5>Price: ${price}</h5>
-                           <h5>Ratings: {rating}</h5>
+                           <div className="d-flex align-items-baseline">
+                              <h5>Ratings: {rating}</h5>
+                              <i className="fs-3 text-warning">
+                                 <AiFillStar></AiFillStar>
+                              </i>
+                           </div>
                         </div>
                      </div>
                   </div>

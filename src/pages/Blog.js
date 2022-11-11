@@ -1,7 +1,9 @@
 import React from "react";
 import SvgGen from "../components/Svg/SvgGen";
+import useDocumentTitle from "../useDocumentTitle";
 
 const Blog = () => {
+   useDocumentTitle("Blog")
    return (
       <div className="mb-5 pb-5">
          <SvgGen></SvgGen>
